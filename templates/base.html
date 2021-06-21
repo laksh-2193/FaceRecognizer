@@ -3,11 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  
 </head>
+<style>
+@keyframes blink{
+0%{opacity: 0;}
+50%{opacity: .5;}
+100%{opacity: 1;}
+} 
+.blink{
+    animation: blink 1s linear infinite;
+}  
+    
+</style>
 <body>
-<h1>Base.html</h1>
-{% block content %}
-{% endblock %}
+    <nav class="navbar navbar-light bg-dark">
+  <a class="navbar-brand text-white d-flex flex-row" href="#">
+    <img src="https://img-premium.flaticon.com/png/512/2383/premium/2383542.png?token=exp=1624071700~hmac=2cea57f5dcf1ffc7c0c95d0e5db58383" width="50" height="50" class="d-inline-block align-top" alt="">
+    <h3 style="margin-top: 7px; margin-left: 5px;">Face Recognition Attendance</h3>
+  </a>
+</nav>
+
+<div class="container mt-3">
+
+    <div class="row">
+        <div class="col mr-4"><lottie-player src="https://assets4.lottiefiles.com/packages/lf20_HQ3RPY.json" background="transparent"  speed="1"  style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+            <h3 class="blink">Detecting face....</h3>
+        </div>
+
+        <div class="col">
+
+            {% block content %}
+            {% endblock %}
+        </div>
+        
+        
+    </div>
+    
+</div>
+<script>
+    toastr.options.showMethod = 'slideDown';
+    
+    toastr.options.progressBar = true;
+    toastr.options.closeButton = true;
+    toastr.info('Ready for face recognition', 'Info.', {timeOut: 5000});
+     
+  </script>
+
 
 
 </body>

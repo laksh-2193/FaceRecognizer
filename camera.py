@@ -2,9 +2,11 @@ import cv2
 import numpy as np
 import face_recognition
 import os
+from flask import Flask, render_template, Response
 path='Images'
 images=[]
 classnames = []
+name=""
 
 mylist=os.listdir(path)
 print(mylist)
@@ -56,7 +58,7 @@ class Video(object):
             w=bottom
             h=left
             x1,y1=x+w,y+w
-            cv2.rectangle(color_img, (x, y), (x + w+30, y + h+30), (0, 0, 255), 1)
+            cv2.rectangle(color_img, (x, y), (x + h, y + w), (0, 0, 255), 1)
             cv2.line(color_img, (x, y), (x + 30, y), (255, 0, 255), 12)
             cv2.line(color_img, (x, y), (x, y+30), (255, 0, 255), 12)
             
@@ -80,7 +82,9 @@ class Video(object):
             cv2.rectangle(frame,(left,bottom-35),(right,bottom),(0,0,255),cv2.FILLED)
             font=cv2.FONT_HERSHEY_DUPLEX
             print(name)
+            
             cv2.putText(frame,name,(left+6,bottom-6),font,1.0,(0,255,255),2)
+            
     
         
         ret,jpg=cv2.imencode('.jpg',frame)

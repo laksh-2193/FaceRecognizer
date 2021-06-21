@@ -1,4 +1,41 @@
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<style>
+.bg {
+ 
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.imgsrc{
+   border-top: 6px solid #341f97;
+  background-color: lightgrey;
+}
+</style>
+
 {% extends 'base.html'%}{% block content %}
-<h1>I am from index.html</h1>
-<img src="{{ url_for('video') }}" height="500" width="500">
+<div class="row" style="background-color: #5f27cd; padding: 10px; font-family: 'Montserrat'; color: #fff;"><h3 style="text-align: center; margin-left: 45%;">Camera...</h3>
+  
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <img src="{{ url_for('video') }}" width="100%" class="imgsrc">
+    
+  </div>
+
+  
+</div>
+
+
+
 {% endblock %}
